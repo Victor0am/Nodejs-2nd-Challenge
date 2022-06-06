@@ -57,6 +57,15 @@ Esse middleware deve receber o **usuário** já dentro do request e chamar a fun
     
     Para que esse teste passe, no middleware **checksCreateTodosUserAvailability** você deve retornar uma resposta com status `403` caso o usuário recebido pela requisição esteja no **plano grátis** e **já tenha 10 *todos* cadastrados**. Você pode também retornar uma mensagem de erro mas isso é opcional.
     
+- **Should be able to let user create infinite new todos when is in Pro plan**
+    
+    Para que esse teste passe, você deve permitir que o middleware **checksCreateTodosUserAvailability** receba o objeto `user` (considere sempre que o objeto existe) da `request` e chame a função `next` caso o usuário já esteja com o plano Pro. 
+    
+    <aside>
+    💡 Se você satisfez os dois testes anteriores antes desse, ele já deve passar também.
+    
+    </aside>
+  
   
 ### checksTodoExists
 
@@ -84,15 +93,7 @@ Com todas as validações passando, o *todo* encontrado deve ser passado para o 
     
     Para que esse teste passe, no middleware **checksTodoExists** você deve retornar uma resposta com status `404` caso o `id` do *todo* passado pelos parâmetros da requisição não pertença a nenhum *todo* do usuário encontrado.
     
-- **Should be able to let user create infinite new todos when is in Pro plan**
-    
-    Para que esse teste passe, você deve permitir que o middleware **checksCreateTodosUserAvailability** receba o objeto `user` (considere sempre que o objeto existe) da `request` e chame a função `next` caso o usuário já esteja com o plano Pro. 
-    
-    <aside>
-    💡 Se você satisfez os dois testes anteriores antes desse, ele já deve passar também.
-    
-    </aside>
-  
+
 
 ### findUserById
 
